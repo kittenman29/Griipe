@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
-const configureRoutes = require('../config/routes');
+// const configureRoutes = require('../config/routes');
 
-// const twitterRoutes = require('../config/twitter/twitter-router');
-const formRoutes = require("../config/confirmation/form-router")
+const twitterRoutes = require('../config/twitter/twitter-router');
+const formRoutes = require("../config/confirmation/griipe-router")
 
 const server = express();
 
@@ -18,8 +18,8 @@ server.get('/', (req, res) => {
     `)
 })
 
-configureRoutes(server);
+// configureRoutes(server);
 server.use('/api/routes', formRoutes)
-// server.use('/api/routes', twitterRoutes)
+server.use('/api/routes', twitterRoutes)
 
 module.exports = server;
