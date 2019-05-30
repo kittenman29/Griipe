@@ -3,16 +3,12 @@ const Twitter = require('twitter');
 const db = require('../../data/dbConfig');
 
 const client = new Twitter({
-    consumer_key: "sHlkWYen1bco2X3HWnsFMH9hK",
-    consumer_secret: "zlYYHGJewvKYfmP8V51Vm2aFwJcNk9YSLUk9fTQAjYs57XmmsK",
-    access_token_key: "1127276108158779392-WAOjLcyRaXaIOkISZw1u9c7ILkFcqn",
-    access_token_secret: "wK301G5c4bH2PccMLMkytJ3uZt2H508pVmciTiB3TRVXf"
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
-// TWITTER_CONSUMER_KEY="sHlkWYen1bco2X3HWnsFMH9hK"
-// TWITTER_CONSUMER_SECRET="zlYYHGJewvKYfmP8V51Vm2aFwJcNk9YSLUk9fTQAjYs57XmmsK"
-// TWITTER_ACCESS_TOKEN_KEY="1127276108158779392-WAOjLcyRaXaIOkISZw1u9c7ILkFcqn"
-// TWITTER_ACCESS_TOKEN_SECRET="wK301G5c4bH2PccMLMkytJ3uZt2H508pVmciTiB3TRVXf"
 
 module.exports = {
     get: function(){
