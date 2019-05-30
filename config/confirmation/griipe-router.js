@@ -70,5 +70,39 @@ router.post('/makenewtweet', (req, res) => {
     })
 })
 
+router.delete('/posts/:id', (req, res) => {
+    const id = req.params.id;
+
+    griipeDB
+        .deletePost(id)
+        .then(post => {
+            res.status(204).json({success: "post has been deleted"});  
+        })
+        .catch(error => {
+            res.status(500).json({
+                error: "post cant be removed"
+            })
+        })
+
+}) 
+
+router.put('/posts/:id', (req, res) => {
+
+    const id = req.params.id;
+    const postbod = req.body;
+  
+    griipeDB
+        .updatePost(id, postbod)
+        .then(updated => {
+            res.status(200).json({sucess: "It worked!"})
+        })
+        .catch(error => {
+            res.status(500).json({
+                error: "The post information could not be modified."
+            });
+        })
+   
+})
+
 
 module.exports = router;

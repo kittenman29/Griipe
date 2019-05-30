@@ -25,7 +25,9 @@ module.exports = {
     getPosts,
     getPostByUser,
     addPost,
-    postTweet
+    postTweet,
+    deletePost,
+    updatePost
 };
 
 function getPosts() {
@@ -61,3 +63,17 @@ function postTweet(tweets) {
         console.log(error)
 })
 }
+
+function deletePost(id) {
+    return db('griipe')
+      .where({ id })
+      .del();
+  }
+ 
+ 
+ function updatePost(id, changes) {
+    return db('griipe')
+      .where({ id })
+      .update(changes)
+      .then(count => (count > 0 ? this.getByID(id) : null));
+  }
